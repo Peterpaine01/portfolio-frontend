@@ -6,7 +6,7 @@ import axios from "axios";
 import Profil from "../assets/photo-profil.png";
 
 const Resume = () => {
-  const [projectsList, setProjectsList] = useState([]);
+  const [projectsList, setProjectsList] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -16,7 +16,6 @@ const Resume = () => {
           `${process.env.REACT_APP_SERVER_URL}/projects`
         );
         setProjectsList(response.data);
-        console.log(response.data);
         setIsLoading(false);
       } catch (error) {
         console.log(error.message);
@@ -126,7 +125,12 @@ const Resume = () => {
       <div className="container">
         <section>
           <h2>Projets</h2>
-          <div className="slider"></div>
+          <div className="slider">
+            {/* {projectsList.map((project) => {
+              console.log(project);
+              return <p>yo</p>;
+            })} */}
+          </div>
         </section>
       </div>
       <div className="container">

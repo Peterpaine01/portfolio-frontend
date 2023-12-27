@@ -760,6 +760,7 @@ p.formation-date {
   background-color: #ffffff50;
   border-radius: 15px;
   padding: 25px;
+  padding-right: 50px;
   padding-left: 115px;
   cursor: pointer;
   transition: all 0.2s;
@@ -791,7 +792,8 @@ p.formation-date {
   background-color: #ffffff50;
   width: 90px;
   padding: 0 15px;
-  height: 68px;
+  /* height: 68px; */
+  bottom: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1011,7 +1013,7 @@ p.formation-date {
   #communication::before,
   #webdesigner::before {
     font-size: 14px;
-    height: 66px;
+    /* height: 64px; */
   }
 
   .project-top {
@@ -1031,7 +1033,17 @@ p.formation-date {
 
 @media (max-width: 500px) {
   .project-top {
-    height: 210px;
+    height: 200px;
+  }
+
+  .formation-top {
+    height: 200px;
+  }
+}
+
+@media (max-width: 440px) {
+  .project-top {
+    height: 180px;
   }
 
   .formation-top {

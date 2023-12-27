@@ -908,6 +908,29 @@ p.formation-date {
     width: 70%;
     left: 15%;
   }
+
+  .slick-prev {
+    top: -80px;
+    left: unset;
+    right: 40px;
+    width: 35px;
+    height: 35px;
+    background-color: #ffffff00;
+    color: white;
+  }
+
+  .slick-next {
+    top: -80px;
+    right: 0%;
+    width: 35px;
+    height: 35px;
+    background-color: #ffffff00;
+  }
+
+  .slick-prev i,
+  .slick-next i {
+    color: white;
+  }
 }
 
 /* Large devices (desktops, 992px and up) */

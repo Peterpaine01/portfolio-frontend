@@ -598,7 +598,7 @@ const Resume = () => {
 
                 <p>
                   Formation professionnelle en Conception et Réalisation de
-                  Produits en Ligne. Les Gobelins, Pari
+                  Produits en Ligne.
                 </p>
               </div>
             </article>

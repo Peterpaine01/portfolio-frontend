@@ -580,7 +580,7 @@ p.sub-title {
 }
 
 .competence-item {
-  width: calc(100% / 3 - 20px);
+  width: calc(100% / 3 - 15px);
 }
 
 .competence-item svg {
@@ -669,7 +669,7 @@ p.sub-title {
 
 .slick-prev {
   position: absolute;
-  z-index: 1000;
+  z-index: 10;
   width: 50px;
   height: 50px;
   background-color: white;
@@ -687,7 +687,7 @@ p.sub-title {
 
 .slick-next {
   position: absolute;
-  z-index: 1000;
+  z-index: 10;
   width: 50px;
   height: 50px;
   background-color: white;
@@ -965,7 +965,7 @@ p.formation-date {
 /* Medium devices (tablets, 768px and up) */
 @media (max-width: 768px) {
   .column-3:first-child .competence-item {
-    width: calc(100% / 4 - 20px);
+    width: calc(100% / 4 - 15px);
   }
 
   .project-top {
@@ -1013,7 +1013,7 @@ p.formation-date {
   }
 
   .column-3 .competence-item {
-    width: calc(100% / 4 - 20px);
+    width: calc(100% / 4 - 15px);
   }
 
   .column-4 {

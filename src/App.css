@@ -71,6 +71,10 @@ body h3 {
   margin-bottom: 15px;
 }
 
+.flex-parent h3 {
+  width: calc(100% - 120px);
+}
+
 .flex-parent {
   display: flex;
   flex-wrap: wrap;
@@ -746,6 +750,8 @@ p.formation-date {
   color: var(--color-red);
   margin-bottom: 5px;
   font-weight: 400;
+  width: 100px;
+  text-align: right;
 }
 
 /* Expériences */

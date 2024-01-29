@@ -577,6 +577,7 @@ p.sub-title {
   padding: 25px;
   border-top-right-radius: 15px;
   border-top-left-radius: 15px;
+  width: 100%;
 }
 
 .items {
@@ -936,6 +937,11 @@ p.formation-date {
   .slick-prev i,
   .slick-next i {
     color: white;
+  }
+
+  .slick-next:hover,
+  .slick-prev:hover {
+    background-color: transparent;
   }
 }
 

@@ -8,6 +8,7 @@ import Header from "./components/Header";
 
 // Pages
 import Resume from "./pages/Resume";
+import Projet from "./pages/Projet";
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
       <Header />
       <Routes>
         <Route path="/" element={<Resume />} />
+        <Route path="/projet/:id" element={<Projet />} />
       </Routes>
     </Router>
   );

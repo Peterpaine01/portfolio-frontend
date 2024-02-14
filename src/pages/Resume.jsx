@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Slider from "react-slick";
+import Markdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 // images
 import Profil from "../assets/photo-profil.png";
@@ -494,6 +496,14 @@ const Resume = () => {
                           })}
                         </div>
 
+                        {/* {project.resume && (
+                          <div className="project-resume">
+                            <Markdown remarkPlugins={[remarkGfm]}>
+                              {project.resume}
+                            </Markdown>
+                          </div>
+                        )} */}
+
                         {project.url && (
                           <Link
                             className="btn btn-solid btn-full"
@@ -504,48 +514,52 @@ const Resume = () => {
                             <i className="fa-solid fa-chevron-right"></i>
                           </Link>
                         )}
-                        <div className="project-links">
-                          {project.repoback && (
-                            <Link
-                              className="btn btn-light-small "
-                              to={project.repoback}
-                              target="_blank"
-                            >
-                              Repo backend{" "}
-                              <i className="fa-solid fa-chevron-right"></i>
-                            </Link>
-                          )}
-                          {project.repofront && (
-                            <Link
-                              className="btn btn-light-small"
-                              to={project.repofront}
-                              target="_blank"
-                            >
-                              Repo frontend{" "}
-                              <i className="fa-solid fa-chevron-right"></i>
-                            </Link>
-                          )}
-                          {project.figma && (
-                            <Link
-                              className="btn btn-light-small"
-                              to={project.figma}
-                              target="_blank"
-                            >
-                              Figma{" "}
-                              <i className="fa-solid fa-chevron-right"></i>
-                            </Link>
-                          )}
-                        </div>
+                        {(project.repoback ||
+                          project.repofront ||
+                          project.figma) && (
+                          <div className="project-links">
+                            {project.repoback && (
+                              <Link
+                                className="btn btn-light-small "
+                                to={project.repoback}
+                                target="_blank"
+                              >
+                                Repo backend{" "}
+                                <i className="fa-solid fa-chevron-right"></i>
+                              </Link>
+                            )}
+                            {project.repofront && (
+                              <Link
+                                className="btn btn-light-small"
+                                to={project.repofront}
+                                target="_blank"
+                              >
+                                Repo frontend{" "}
+                                <i className="fa-solid fa-chevron-right"></i>
+                              </Link>
+                            )}
+                            {project.figma && (
+                              <Link
+                                className="btn btn-light-small"
+                                to={project.figma}
+                                target="_blank"
+                              >
+                                Figma{" "}
+                                <i className="fa-solid fa-chevron-right"></i>
+                              </Link>
+                            )}
+                          </div>
+                        )}
                       </div>
                     </div>
 
-                    {/* <Link
+                    <Link
                       className="btn btn-outlined btn-green btn-bottom"
-                      to={`/`}
+                      to={`/projet/${project._id}`}
                     >
                       En savoir plus{" "}
                       <i className="fa-solid fa-chevron-right"></i>
-                    </Link> */}
+                    </Link>
                   </article>
                 );
               })}

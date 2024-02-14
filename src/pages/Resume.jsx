@@ -496,15 +496,15 @@ const Resume = () => {
                           })}
                         </div>
 
-                        {/* {project.resume && (
+                        {project.resume && (
                           <div className="project-resume">
                             <Markdown remarkPlugins={[remarkGfm]}>
                               {project.resume}
                             </Markdown>
                           </div>
-                        )} */}
+                        )}
 
-                        {project.url && (
+                        {/* {project.url && (
                           <Link
                             className="btn btn-solid btn-full"
                             to={project.url}
@@ -549,7 +549,7 @@ const Resume = () => {
                               </Link>
                             )}
                           </div>
-                        )}
+                        )} */}
                       </div>
                     </div>
 

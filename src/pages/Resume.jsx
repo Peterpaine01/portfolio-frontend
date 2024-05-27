@@ -110,10 +110,9 @@ const Resume = () => {
 
             <div className="identity">
               <p className="text-emphase">FANNY CARLIER</p>
-              <h1>Developpeuse web & mobile JS</h1>
+              <h1>Développeuse web & mobile</h1>
               <p className="sub-title">
-                En recherche d'un contrat de professionnalisation (fin février
-                2024)
+                En recherche d'un poste de développeur Front-end React JS en agence
               </p>
               <div className="link-pro flex-parent">
                 <Link

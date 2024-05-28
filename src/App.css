@@ -830,6 +830,10 @@ p.formation-date {
   transition: all 0.2s;
 }
 
+#developpeur::before {
+  content: "6 mois";
+}
+
 #communication::before {
   content: "5 ans";
 }
@@ -839,6 +843,7 @@ p.formation-date {
 }
 
 #integrateur.active::before,
+#developpeur.active::before,
 #communication.active::before,
 #webdesigner.active::before {
   border-bottom-left-radius: 0;
@@ -1226,6 +1231,7 @@ ol {
   }
 
   #integrateur::before,
+  #developpeur::before,
   #communication::before,
   #webdesigner::before {
     font-size: 14px;

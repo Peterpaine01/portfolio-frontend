@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 // Images
 
 // PDF
-import CV from "../assets/FannyCarlier-CV-DEC2023.pdf";
+import CV from "../assets/FannyCarlier-CV-MAI2024.pdf";
 
 // Je récupère les props
 const Header = ({ logo }) => {

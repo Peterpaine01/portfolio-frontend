@@ -110,10 +110,10 @@ const Resume = () => {
 
             <div className="identity">
               <p className="text-emphase">FANNY CARLIER</p>
-              <h1>Developpeuse web & mobile JS</h1>
+              <h1>Développeuse web & mobile</h1>
               <p className="sub-title">
-                En recherche d'un contrat de professionnalisation (fin février
-                2024)
+                En recherche d'un poste de développeur Front-end React JS en
+                contrat de professionnalisation (alternnace)
               </p>
               <div className="link-pro flex-parent">
                 <Link
@@ -639,6 +639,41 @@ const Resume = () => {
         <section className="experiences">
           <h2>Expériences</h2>
           <div className="toggle-container">
+            <article className="toggle">
+              <a
+                className="toggle-top flex-parent"
+                id="developpeur"
+                onClick={(event) => {
+                  handleToggle(event.target);
+                }}
+              >
+                Développeur web & mobile
+              </a>
+              <div className="toggle-bottom">
+                <ul>
+                  <li className="dotted flex-parent">
+                    <p>Freelance</p>
+                    <div className="dot"></div>
+                    <p>2024</p>
+                  </li>
+                  <li>
+                    <ul>
+                      <li className="dotted flex-parent">
+                        <p>Ads-Com, agence web, Orléans</p>
+                        <div className="dot"></div>
+                        <p>2024</p>
+                      </li>
+                      <li>
+                        <p className="xp-details">
+                          React, React Native CLI, GitLab, Firebase
+                          Analytics/Messaging.
+                        </p>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </article>
             <article className="toggle">
               <a
                 className="toggle-top flex-parent"

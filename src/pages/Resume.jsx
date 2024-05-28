@@ -21,7 +21,7 @@ const Resume = () => {
       try {
         const response = await axios.get(
           `https://site--portfolio-backend--fklc4pfyn242.code.run/projects`
-          // `${process.env.REACT_APP_SERVER_URL}/projects`
+          // `${import.meta.env.VITE_API_URL}/projects`
         );
         setProjectsList(response.data);
         console.log(response.data);

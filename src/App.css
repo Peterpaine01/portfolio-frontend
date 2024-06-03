@@ -806,6 +806,10 @@ p.formation-date {
   right: 25px;
   font-size: 24px;
   margin-top: -4px;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
 }
 
 #integrateur::before,

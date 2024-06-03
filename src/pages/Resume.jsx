@@ -723,11 +723,14 @@ const Resume = () => {
                   <li>
                     <ul>
                       <li className="dotted flex-parent">
-                        <p>Chambre d'agriculture du Loiret, Orléans</p>
+                        <p>Chambre d'agriculture</p>
                         <div className="dot"></div>
                         <p>2021 - 2023</p>
                       </li>
                       <li>
+                        <p className="xp-details">
+                          Chambre départementale du Loiret, Orléans
+                        </p>
                         <p className="xp-details">
                           Cheffe de projet MOA pour la création du site marchand
                           de l'entreprise.
@@ -738,11 +741,14 @@ const Resume = () => {
                   <li>
                     <ul>
                       <li className="dotted flex-parent">
-                        <p>Thélem assurances, Orléans</p>
+                        <p>Thélem assurances</p>
                         <div className="dot"></div>
                         <p>2018 - 2020</p>
                       </li>
                       <li>
+                        <p className="xp-details">
+                            Siège,service communication et marketing, Orléans.
+                        </p>
                         <p className="xp-details">
                           Suivi de projet pout la refonte du site web & de
                           l'espace client de l'entreprise.
@@ -767,22 +773,46 @@ const Resume = () => {
                 <ul>
                   <li className="dotted flex-parent">
                     <p>
-                      Mediamobile, fournisseur européen d'information trafic en
-                      temps réel{" "}
+                      Mediamobile
                     </p>
                     <div className="dot"></div>
                     <p>2015</p>
                   </li>
+                  <li>
+                      <p className="xp-details">
+                      Fournisseur européen d'information trafic en
+                      temps réel, Paris.
+                      </p>
+                      <p className="xp-details">
+                        Maquette et intégration de leur appli mobile V-Trafic.
+                      </p>
+                    </li>
                   <li className="dotted  flex-parent">
-                    <p>Is&a Bloom, agence web Paris</p>
+                    <p>Is&a Bloom</p>
                     <div className="dot"></div>
                     <p>2015</p>
                   </li>
+                  <li>
+                      <p className="xp-details">
+                      Agence web, Paris.
+                      </p>
+                      <p className="xp-details">
+                        Maquettes site web responsive.
+                      </p>
+                    </li>
                   <li className="dotted flex-parent">
-                    <p>Sool Design, agence de communication Orléans</p>
+                    <p>Sool Design</p>
                     <div className="dot"></div>
                     <p>2011 - 2012</p>
                   </li>
+                  <li>
+                      <p className="xp-details">
+                      Agence de communication, Orléans.
+                      </p>
+                      <p className="xp-details">
+                        Maquettes site web et communication print.
+                      </p>
+                    </li>
                 </ul>
               </div>
             </article>

@@ -18,6 +18,7 @@ const Projet = () => {
 
   const params = useParams();
   const id = params.id;
+  console.log("params >", params);
 
   useEffect(() => {
     const fetchData = async () => {

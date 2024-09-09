@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 // Images
 
 // PDF
-import CV from "../assets/FannyCarlier-CV-JUILL2024-Alternance.pdf";
+import CV from "../assets/Fanny-Carlier_CV-AOUT2024-Alternance.pdf";
 
 // Je récupère les props
 const Header = ({ logo }) => {
@@ -40,9 +40,9 @@ const Header = ({ logo }) => {
           className="hamburger"
           type="checkbox"
           id="icon-menu-burger"
-          tabindex="0"
+          tabIndex="0"
         />
-        <label aria-label="Ouvrir menu" for="icon-menu-burger">
+        <label aria-label="Ouvrir menu" htmlFor="icon-menu-burger">
           <span></span>
         </label>
         <nav className="flex-parent menu-mobile">

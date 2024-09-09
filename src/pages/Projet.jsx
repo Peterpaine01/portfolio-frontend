@@ -161,6 +161,8 @@ const Projet = () => {
     return <p>Loading</p>;
   }
 
+  console.log((project.video && project.type !== "App") === true);
+
   return (
     <main className="project-page">
       <div className="wrap">
@@ -173,15 +175,13 @@ const Projet = () => {
           >
             <aside className="project-preview">
               <div className="preview-container">
-                <img src={project.preview.secure_url} alt=""></img>
-                {project.url && (
-                  <Link
-                    className="btn btn-solid btn-full btn-online"
-                    to={project.url}
-                    target="_blank"
-                  >
-                    Voir en ligne <i className="fa-solid fa-chevron-right"></i>
-                  </Link>
+                {project.type !== "App" && project.video ? (
+                  <video className="video-project" controls autoPlay loop muted>
+                    <source src={project.video} type="video/mp4" />
+                    Votre navigateur ne supporte pas les vidéos HTML5.
+                  </video>
+                ) : (
+                  <img src={project.preview.secure_url} alt=""></img>
                 )}
               </div>
             </aside>
@@ -231,6 +231,15 @@ const Projet = () => {
                   )}
                 </div>
               )}
+              {project.url && (
+                <Link
+                  className="btn btn-solid btn-full btn-online"
+                  to={project.url}
+                  target="_blank"
+                >
+                  Voir en ligne <i className="fa-solid fa-chevron-right"></i>
+                </Link>
+              )}
             </div>
           </section>
         </div>
@@ -240,7 +249,11 @@ const Projet = () => {
         <section className="flex-parent project-details">
           <aside
             className={
-              !project.images || project.images.length > 0 ? "col-2" : "col-1"
+              !project.images ||
+              project.images.length > 0 ||
+              (project.video && project.type === "App")
+                ? "col-2"
+                : "col-1"
             }
           >
             <Markdown remarkPlugins={[remarkGfm]}>
@@ -248,29 +261,41 @@ const Projet = () => {
             </Markdown>
           </aside>
 
-          {(!project.images || project.images.length > 0) && (
-            <div className="right-col">
+          {/* App sans video */}
+          {project.type === "App" && !project.video && (
+            <div className="right-col ">
+              <Slider {...settingsApp}>
+                {project.images.map((image) => {
+                  // console.log(image);
+                  return (
+                    <img key={image.asset_id} src={image.secure_url} alt="" />
+                  );
+                })}
+              </Slider>
+            </div>
+          )}
+          {/* site web */}
+          {project.type !== "App" && project.images.length > 0 && (
+            <div className="right-col ">
               <h2>En images</h2>
+              <Slider {...settings}>
+                {project.images.map((image) => {
+                  console.log(image);
+                  return (
+                    <img key={image.asset_id} src={image.secure_url} alt="" />
+                  );
+                })}
+              </Slider>
+            </div>
+          )}
 
-              {project.type === "App" ? (
-                <Slider {...settingsApp}>
-                  {project.images.map((image) => {
-                    // console.log(image);
-                    return (
-                      <img key={image.asset_id} src={image.secure_url} alt="" />
-                    );
-                  })}
-                </Slider>
-              ) : (
-                <Slider {...settings}>
-                  {project.images.map((image) => {
-                    console.log(image);
-                    return (
-                      <img key={image.asset_id} src={image.secure_url} alt="" />
-                    );
-                  })}
-                </Slider>
-              )}
+          {/* App avec video */}
+          {project.video && project.type === "App" && (
+            <div className="right-col right-video">
+              <video className="video-project" controls autoPlay loop muted>
+                <source src={project.video} type="video/mp4" />
+                Votre navigateur ne supporte pas les vidéos HTML5.
+              </video>
             </div>
           )}
         </section>

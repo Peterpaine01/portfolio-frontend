@@ -40,12 +40,14 @@ const Resume = () => {
 
   // Settings slider
   const settings = {
-    dots: false,
+    dots: true,
     infinite: false,
-    speed: 300,
     slidesToShow: 3,
     slidesToScroll: 3,
-    initialSlide: 0,
+    autoplay: true,
+    speed: 1000,
+    autoplaySpeed: 10000,
+    cssEase: "linear",
     prevArrow: (
       <button type="button" class="slick-prev">
         <i class="fa-solid fa-angle-left"></i>
@@ -112,8 +114,8 @@ const Resume = () => {
               <p className="text-emphase">FANNY CARLIER</p>
               <h1>Développeuse web & mobile</h1>
               <p className="sub-title">
-                En recherche d'un poste de développeur Front-end React JS en
-                contrat de professionnalisation (alternnace)
+                En recherche d'un poste de développeur Front-end dans le cadre
+                d'un contrat en alternance.
               </p>
               <div className="link-pro flex-parent">
                 <Link
@@ -147,7 +149,350 @@ const Resume = () => {
           </section>
         </div>
       </div>
+      {/* PROJETS */}
+      <div className="container">
+        <section>
+          <h2>Projets</h2>
+          <div className="alaune"></div>
+          <div className="slider">
+            <Slider {...settings}>
+              {projectsList.map((project) => {
+                console.log(project.title, project.video);
+                return (
+                  <Link
+                    key={project._id}
+                    className="project-item"
+                    to={`/projet/${project._id}`}
+                  >
+                    {project.type === "App" && project.video ? (
+                      <>
+                        <article>
+                          <div className="project project-app">
+                            <div className="project-left">
+                              {project.video && (
+                                <video
+                                  className="video-project"
+                                  controls
+                                  autoPlay
+                                  loop
+                                  muted
+                                >
+                                  <source
+                                    src={project.video}
+                                    type="video/mp4"
+                                  />
+                                  Votre navigateur ne supporte pas les vidéos
+                                  HTML5.
+                                </video>
+                              )}
+                            </div>
+                            <div className="project-right">
+                              <div>
+                                <p className="formation-date">{project.date}</p>
+                                <h3>{project.title}</h3>
+                              </div>
 
+                              <div className="tags-container">
+                                {project.tag.map((tag, index) => {
+                                  return <p key={index}>{tag}</p>;
+                                })}
+                              </div>
+                            </div>
+                          </div>
+                        </article>
+                        <div className="overlay">
+                          <div className="btn btn-outlined btn-green btn-bottom">
+                            <i className="fa-solid fa-plus"></i>
+                          </div>
+                        </div>
+                      </>
+                    ) : (
+                      <>
+                        <article>
+                          <div className="project">
+                            <div className="project-top">
+                              {project.video ? (
+                                <video
+                                  className="video-project"
+                                  controls
+                                  autoPlay
+                                  loop
+                                  muted
+                                >
+                                  <source
+                                    src={project.video}
+                                    type="video/mp4"
+                                  />
+                                  Votre navigateur ne supporte pas les vidéos
+                                  HTML5.
+                                </video>
+                              ) : (
+                                <img src={project.preview.secure_url} alt="" />
+                              )}
+                            </div>
+                            <div className="project-bottom">
+                              <div className="flex-parent flex-between">
+                                <h3>{project.title}</h3>
+                                <p className="formation-date">{project.date}</p>
+                              </div>
+
+                              <div className="tags-container">
+                                {project.tag.map((tag, index) => {
+                                  return <p key={index}>{tag}</p>;
+                                })}
+                              </div>
+
+                              {/* {project.resume && (
+                          <div className="project-resume">
+                            <Markdown remarkPlugins={[remarkGfm]}>
+                              {project.resume}
+                            </Markdown>
+                          </div>
+                        )} */}
+
+                              {/* {project.url && (
+                          <Link
+                            className="btn btn-solid btn-full"
+                            to={project.url}
+                            target="_blank"
+                          >
+                            Voir en ligne{" "}
+                            <i className="fa-solid fa-chevron-right"></i>
+                          </Link>
+                        )}
+                        {(project.repoback ||
+                          project.repofront ||
+                          project.figma) && (
+                          <div className="project-links">
+                            {project.repoback && (
+                              <Link
+                                className="btn btn-light-small "
+                                to={project.repoback}
+                                target="_blank"
+                              >
+                                Repo backend{" "}
+                                <i className="fa-solid fa-chevron-right"></i>
+                              </Link>
+                            )}
+                            {project.repofront && (
+                              <Link
+                                className="btn btn-light-small"
+                                to={project.repofront}
+                                target="_blank"
+                              >
+                                Repo frontend{" "}
+                                <i className="fa-solid fa-chevron-right"></i>
+                              </Link>
+                            )}
+                            {project.figma && (
+                              <Link
+                                className="btn btn-light-small"
+                                to={project.figma}
+                                target="_blank"
+                              >
+                                Figma{" "}
+                                <i className="fa-solid fa-chevron-right"></i>
+                              </Link>
+                            )}
+                          </div>
+                        )} */}
+                            </div>
+                          </div>
+                        </article>
+                        <div className="overlay">
+                          <div className="btn btn-outlined btn-green btn-bottom">
+                            <i className="fa-solid fa-plus"></i>
+                          </div>
+                        </div>
+                      </>
+                    )}
+                  </Link>
+                );
+              })}
+            </Slider>
+          </div>
+        </section>
+      </div>
+      {/* EXPERIENCES */}
+      <div className="container">
+        <section className="experiences">
+          <h2>Expériences</h2>
+          <div className="toggle-container">
+            <article className="toggle">
+              <a
+                className="toggle-top flex-parent"
+                id="developpeur"
+                onClick={(event) => {
+                  handleToggle(event.target);
+                }}
+              >
+                Développeur web & mobile
+              </a>
+              <div className="toggle-bottom">
+                <ul>
+                  <li className="dotted flex-parent">
+                    <p>Freelance</p>
+                    <div className="dot"></div>
+                    <p>2024</p>
+                  </li>
+                  <li>
+                    <ul>
+                      <li className="dotted flex-parent">
+                        <p>Ads-Com, agence web, Orléans</p>
+                        <div className="dot"></div>
+                        <p>2024</p>
+                      </li>
+                      <li>
+                        <p className="xp-details">
+                          React, React Native CLI, GitLab, Firebase
+                          Analytics/Messaging.
+                        </p>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </article>
+            <article className="toggle">
+              <a
+                className="toggle-top flex-parent"
+                id="integrateur"
+                onClick={(event) => {
+                  handleToggle(event.target);
+                }}
+              >
+                Intégrateur web & mobile
+              </a>
+              <div className="toggle-bottom">
+                <ul>
+                  <li className="dotted flex-parent">
+                    <p>Freelance</p>
+                    <div className="dot"></div>
+                    <p>2015</p>
+                  </li>
+                  <li>
+                    <ul>
+                      <li className="dotted flex-parent">
+                        <p>Ads-Com, agence web, Orléans</p>
+                        <div className="dot"></div>
+                        <p>2014 - 2015</p>
+                      </li>
+                      <li>
+                        <p className="xp-details">
+                          Bootstrap, Drupal, Jahia, Grunt, Less, Sass.
+                        </p>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </article>
+            <article className="toggle">
+              <a
+                className="toggle-top flex-parent"
+                id="communication"
+                onClick={(event) => {
+                  handleToggle(event.target);
+                }}
+              >
+                Chargée de communication digitale
+              </a>
+              <div className="toggle-bottom">
+                <ul>
+                  <li>
+                    <ul>
+                      <li className="dotted flex-parent">
+                        <p>Chambre d'agriculture</p>
+                        <div className="dot"></div>
+                        <p>2021 - 2023</p>
+                      </li>
+                      <li>
+                        <p className="xp-details">
+                          Chambre départementale du Loiret, Orléans
+                        </p>
+                        <p className="xp-details">
+                          Cheffe de projet MOA pour la création du site marchand
+                          de l'entreprise.
+                        </p>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <ul>
+                      <li className="dotted flex-parent">
+                        <p>Thélem assurances</p>
+                        <div className="dot"></div>
+                        <p>2018 - 2020</p>
+                      </li>
+                      <li>
+                        <p className="xp-details">
+                          Siège,service communication et marketing, Orléans.
+                        </p>
+                        <p className="xp-details">
+                          Suivi de projet pout la refonte du site web & de
+                          l'espace client de l'entreprise.
+                        </p>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </article>
+            <article className="toggle">
+              <a
+                className="toggle-top flex-parent"
+                id="webdesigner"
+                onClick={(event) => {
+                  handleToggle(event.target);
+                }}
+              >
+                Webdesigner
+              </a>
+              <div className="toggle-bottom">
+                <ul>
+                  <li className="dotted flex-parent">
+                    <p>Mediamobile</p>
+                    <div className="dot"></div>
+                    <p>2015</p>
+                  </li>
+                  <li>
+                    <p className="xp-details">
+                      Fournisseur européen d'information trafic en temps réel,
+                      Paris.
+                    </p>
+                    <p className="xp-details">
+                      Maquette et intégration de leur appli mobile V-Trafic.
+                    </p>
+                  </li>
+                  <li className="dotted  flex-parent">
+                    <p>Is&a Bloom</p>
+                    <div className="dot"></div>
+                    <p>2015</p>
+                  </li>
+                  <li>
+                    <p className="xp-details">Agence web, Paris.</p>
+                    <p className="xp-details">Maquettes site web responsive.</p>
+                  </li>
+                  <li className="dotted flex-parent">
+                    <p>Sool Design</p>
+                    <div className="dot"></div>
+                    <p>2011 - 2012</p>
+                  </li>
+                  <li>
+                    <p className="xp-details">
+                      Agence de communication, Orléans.
+                    </p>
+                    <p className="xp-details">
+                      Maquettes site web et communication print.
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </section>
+      </div>
+      {/* COMPETENCES */}
       <div className="container">
         <section className="competences">
           <h2>Compétences techniques</h2>
@@ -471,102 +816,8 @@ const Resume = () => {
           </div>
         </section>
       </div>
-      <div className="container">
-        <section>
-          <h2>Projets</h2>
-          <div className="slider">
-            <Slider {...settings}>
-              {projectsList.map((project) => {
-                console.log(project);
-                return (
-                  <article key={project._id} className="project-item">
-                    <div className="project">
-                      <div className="project-top">
-                        <img src={project.preview.secure_url} alt="" />
-                      </div>
-                      <div className="project-bottom">
-                        <div className="flex-parent flex-between">
-                          <h3>{project.title}</h3>
-                          <p className="formation-date">{project.date}</p>
-                        </div>
 
-                        <div className="tags-container">
-                          {project.tag.map((tag, index) => {
-                            return <p key={index}>{tag}</p>;
-                          })}
-                        </div>
-
-                        {project.resume && (
-                          <div className="project-resume">
-                            <Markdown remarkPlugins={[remarkGfm]}>
-                              {project.resume}
-                            </Markdown>
-                          </div>
-                        )}
-
-                        {/* {project.url && (
-                          <Link
-                            className="btn btn-solid btn-full"
-                            to={project.url}
-                            target="_blank"
-                          >
-                            Voir en ligne{" "}
-                            <i className="fa-solid fa-chevron-right"></i>
-                          </Link>
-                        )}
-                        {(project.repoback ||
-                          project.repofront ||
-                          project.figma) && (
-                          <div className="project-links">
-                            {project.repoback && (
-                              <Link
-                                className="btn btn-light-small "
-                                to={project.repoback}
-                                target="_blank"
-                              >
-                                Repo backend{" "}
-                                <i className="fa-solid fa-chevron-right"></i>
-                              </Link>
-                            )}
-                            {project.repofront && (
-                              <Link
-                                className="btn btn-light-small"
-                                to={project.repofront}
-                                target="_blank"
-                              >
-                                Repo frontend{" "}
-                                <i className="fa-solid fa-chevron-right"></i>
-                              </Link>
-                            )}
-                            {project.figma && (
-                              <Link
-                                className="btn btn-light-small"
-                                to={project.figma}
-                                target="_blank"
-                              >
-                                Figma{" "}
-                                <i className="fa-solid fa-chevron-right"></i>
-                              </Link>
-                            )}
-                          </div>
-                        )} */}
-                      </div>
-                    </div>
-
-                    <Link
-                      className="btn btn-outlined btn-green btn-bottom"
-                      to={`/projet/${project._id}`}
-                    >
-                      En savoir plus{" "}
-                      <i className="fa-solid fa-chevron-right"></i>
-                    </Link>
-                  </article>
-                );
-              })}
-            </Slider>
-          </div>
-        </section>
-      </div>
+      {/* FORMATION */}
       <div className="container">
         <section>
           <h2>Formation</h2>
@@ -630,190 +881,6 @@ const Resume = () => {
                   Diplôme National Supérieur d’Expression Plastique en
                   Communication visuelle
                 </p>
-              </div>
-            </article>
-          </div>
-        </section>
-      </div>
-      <div className="container">
-        <section className="experiences">
-          <h2>Expériences</h2>
-          <div className="toggle-container">
-            <article className="toggle">
-              <a
-                className="toggle-top flex-parent"
-                id="developpeur"
-                onClick={(event) => {
-                  handleToggle(event.target);
-                }}
-              >
-                Développeur web & mobile
-              </a>
-              <div className="toggle-bottom">
-                <ul>
-                  <li className="dotted flex-parent">
-                    <p>Freelance</p>
-                    <div className="dot"></div>
-                    <p>2024</p>
-                  </li>
-                  <li>
-                    <ul>
-                      <li className="dotted flex-parent">
-                        <p>Ads-Com, agence web, Orléans</p>
-                        <div className="dot"></div>
-                        <p>2024</p>
-                      </li>
-                      <li>
-                        <p className="xp-details">
-                          React, React Native CLI, GitLab, Firebase
-                          Analytics/Messaging.
-                        </p>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
-              </div>
-            </article>
-            <article className="toggle">
-              <a
-                className="toggle-top flex-parent"
-                id="integrateur"
-                onClick={(event) => {
-                  handleToggle(event.target);
-                }}
-              >
-                Intégrateur web & mobile
-              </a>
-              <div className="toggle-bottom">
-                <ul>
-                  <li className="dotted flex-parent">
-                    <p>Freelance</p>
-                    <div className="dot"></div>
-                    <p>2015</p>
-                  </li>
-                  <li>
-                    <ul>
-                      <li className="dotted flex-parent">
-                        <p>Ads-Com, agence web, Orléans</p>
-                        <div className="dot"></div>
-                        <p>2014 - 2015</p>
-                      </li>
-                      <li>
-                        <p className="xp-details">
-                          Bootstrap, Drupal, Jahia, Grunt, Less, Sass.
-                        </p>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
-              </div>
-            </article>
-            <article className="toggle">
-              <a
-                className="toggle-top flex-parent"
-                id="communication"
-                onClick={(event) => {
-                  handleToggle(event.target);
-                }}
-              >
-                Chargée de communication digitale
-              </a>
-              <div className="toggle-bottom">
-                <ul>
-                  <li>
-                    <ul>
-                      <li className="dotted flex-parent">
-                        <p>Chambre d'agriculture</p>
-                        <div className="dot"></div>
-                        <p>2021 - 2023</p>
-                      </li>
-                      <li>
-                        <p className="xp-details">
-                          Chambre départementale du Loiret, Orléans
-                        </p>
-                        <p className="xp-details">
-                          Cheffe de projet MOA pour la création du site marchand
-                          de l'entreprise.
-                        </p>
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    <ul>
-                      <li className="dotted flex-parent">
-                        <p>Thélem assurances</p>
-                        <div className="dot"></div>
-                        <p>2018 - 2020</p>
-                      </li>
-                      <li>
-                        <p className="xp-details">
-                            Siège,service communication et marketing, Orléans.
-                        </p>
-                        <p className="xp-details">
-                          Suivi de projet pout la refonte du site web & de
-                          l'espace client de l'entreprise.
-                        </p>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
-              </div>
-            </article>
-            <article className="toggle">
-              <a
-                className="toggle-top flex-parent"
-                id="webdesigner"
-                onClick={(event) => {
-                  handleToggle(event.target);
-                }}
-              >
-                Webdesigner
-              </a>
-              <div className="toggle-bottom">
-                <ul>
-                  <li className="dotted flex-parent">
-                    <p>
-                      Mediamobile
-                    </p>
-                    <div className="dot"></div>
-                    <p>2015</p>
-                  </li>
-                  <li>
-                      <p className="xp-details">
-                      Fournisseur européen d'information trafic en
-                      temps réel, Paris.
-                      </p>
-                      <p className="xp-details">
-                        Maquette et intégration de leur appli mobile V-Trafic.
-                      </p>
-                    </li>
-                  <li className="dotted  flex-parent">
-                    <p>Is&a Bloom</p>
-                    <div className="dot"></div>
-                    <p>2015</p>
-                  </li>
-                  <li>
-                      <p className="xp-details">
-                      Agence web, Paris.
-                      </p>
-                      <p className="xp-details">
-                        Maquettes site web responsive.
-                      </p>
-                    </li>
-                  <li className="dotted flex-parent">
-                    <p>Sool Design</p>
-                    <div className="dot"></div>
-                    <p>2011 - 2012</p>
-                  </li>
-                  <li>
-                      <p className="xp-details">
-                      Agence de communication, Orléans.
-                      </p>
-                      <p className="xp-details">
-                        Maquettes site web et communication print.
-                      </p>
-                    </li>
-                </ul>
               </div>
             </article>
           </div>

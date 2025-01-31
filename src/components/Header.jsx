@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 
 // Images
 
@@ -6,7 +7,7 @@ import { Link } from "react-router-dom";
 import CV from "../assets/Fanny-Carlier_CV-AOUT2024-Alternance.pdf";
 
 // Je récupère les props
-const Header = ({ logo }) => {
+const Header = ({ user }) => {
   return (
     <>
       <header>
@@ -14,18 +15,19 @@ const Header = ({ logo }) => {
           <div className="container-full flex-parent">
             <Link className="logo" to="/">
               <p>
-                <strong>Fanny Carlier </strong>- Portfolio
+                <strong>{user.title}</strong>
+                {user.subtitle && ` - ${user.subtitle}`}
               </p>
             </Link>
 
             <nav className="flex-parent">
               <Link
                 className="btn-light"
-                onClick={() => (window.location = "mailto:facarlier@gmail.com")}
+                onClick={() => (window.location = `mailto:${user.email}`)}
               >
                 Contact
               </Link>
-              <a className="btn-outlined" href={CV} target="_blank">
+              <a className="btn-outlined" href={user.cv} target="_blank">
                 <i className="fa-solid fa-download fa-bounce big-icon"></i>{" "}
                 Télécharger le cv
               </a>
